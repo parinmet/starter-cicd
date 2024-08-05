@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:18 # หรือเวอร์ชันที่ใหม่กว่านี้ตามที่ต้องการ
+      - image: circleci/node:20.0.0-browsers # หรือเวอร์ชันที่ใหม่กว่านี้ตามที่ต้องการ
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
