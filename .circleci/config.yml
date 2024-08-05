@@ -36,13 +36,14 @@ jobs:
             sudo apt-get install -y python3 python3-pip
             sudo pip3 install awscli --upgrade
 
-      # - run:
-      #     name: Verify AWS CLI installation
-      #     command: aws --version
+      - run:
+          name: Verify AWS CLI installation
+          command: aws --version
 
-      # - run:
-      #     name: List S3 buckets
-      #     command: aws s3 ls
+      - run:
+          name: List S3 buckets
+          command: |
+            aws s3 ls || echo "Failed to list S3 buckets. Check your AWS credentials."
 
       - run:
           name: Deploy application
