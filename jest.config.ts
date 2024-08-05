@@ -1,9 +1,13 @@
-module.exports = {
-    transform: {
-      '^.+\\.(js|jsx|ts|tsx)$': 'babel-jest',
-    },
-    testEnvironment: 'jsdom',
-    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
-    transformIgnorePatterns: ['/node_modules/(?!(module-to-transform|another-module-to-transform)/)'],
-  };
-  
+import type { Config } from '@jest/types';
+
+const config: Config.InitialOptions = {
+  transform: {
+    "^.+\\.(ts|tsx)$": "babel-jest",
+    "^.+\\.(js|jsx)$": "babel-jest"
+  },
+  testEnvironment: "jsdom",
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
+  transformIgnorePatterns: ["/node_modules/"],
+};
+
+export default config;
