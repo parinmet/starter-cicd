@@ -18,12 +18,15 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: Install dependencies
-          command: npm install
+          name: Install dependencies and cache
+          command: |
+            npm install
+            mkdir -p ~/.cache
+            cp -r node_modules ~/.cache
 
       - save_cache:
           paths:
-            - node_modules
+            - ~/.cache/node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
