@@ -1,4 +1,4 @@
-version: 2.1
+version: 2.1  
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Install dependencies and cache
           command: |
-            yarn install
+            npm install
             mkdir -p ~/.cache
             cp -r node_modules ~/.cache
 
@@ -41,16 +41,12 @@ jobs:
           command: aws --version
 
       - run:
-          name: Verify AWS Credentials
-          command: |
-            aws sts get-caller-identity
-            aws s3 ls
+          name: List S3 buckets
+          command: aws s3 ls
 
       - run:
-          name: Build and Deploy application
-          command: |
-            yarn build
-            aws s3 sync build/ s3://democicd.com --delete
+          name: Deploy application
+          command: npm run deploy
 
 workflows:
   version: 2
